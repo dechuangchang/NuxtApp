@@ -29,7 +29,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/axios'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -54,7 +55,8 @@ module.exports = {
     proxy: true
   },
   proxy: {
-    '/unique': 'https://t.tacu.com/',
+    // http://127.0.0.1:7001/api/user/register
+    '/api': 'http://127.0.0.1:7001/',
   },
   /*
   ** Build configuration
