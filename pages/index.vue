@@ -11,6 +11,7 @@
         <button @click="onSubmit">
           submit
         </button>
+         <nuxt-link to="/register">register</nuxt-link>
       </h1>
     </div>
   </div>

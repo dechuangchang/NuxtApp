@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container2">
     <el-input style="margin-bottom:10px;" v-model="account" placeholder="请输入账号"></el-input>
     <el-input style="margin-bottom:10px;" type="password" v-model="password" placeholder="请输入密码"></el-input>
     <el-input style="margin-bottom:10px;" type="password" v-model="password2" placeholder="请再次输入密码"></el-input>
@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style  scoped lang="less">
-    .container{
+    .container2{
         width: 500px;
         padding: 20px;
         margin: 50px auto;
