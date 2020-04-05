@@ -56,7 +56,7 @@ module.exports = {
   },
   proxy: {
     // http://127.0.0.1:7001/api/user/register
-    '/api': 'http://127.0.0.1:7001/',
+    '/api': 'http://121.36.128.208',
   },
   /*
   ** Build configuration
