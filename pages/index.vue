@@ -57,7 +57,19 @@ export default {
           password
       })
       .then((res)=>{
-        
+        if(res.status==200){
+          this.$message({
+            showClose: true,
+            message: res.message,
+            type: 'success'
+          })
+        }else{
+          this.$message({
+            showClose: true,
+            message: res.message,
+            type: 'warning'
+          })
+        }
       })
     },
     onCancel () {

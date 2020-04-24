@@ -8,7 +8,7 @@ module.exports = {
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
@@ -56,7 +56,7 @@ module.exports = {
   },
   proxy: {
     // http://127.0.0.1:7001/api/user/register
-    '/api': 'http://121.36.128.208',
+    '/api': 'https://www.bbcy.club',
   },
   /*
   ** Build configuration
@@ -70,7 +70,7 @@ module.exports = {
     // }
   },
   server: {
-    port: 3000, // default: 3000
+    port: 3333, // default: 3000
     host: '0.0.0.0' // default: localhost,
   },
   rules: {
