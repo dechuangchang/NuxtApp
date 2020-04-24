@@ -46,7 +46,11 @@ export default {
           password
       })
       .then((res)=>{
-        
+        this.$message({
+          showClose: true,
+          message: res.message,
+          type: 'warning'
+        })
       })
     },
     onCancel () {
@@ -60,7 +64,7 @@ export default {
 }
 </script>
 
-<style  scoped lang="less">
+<style >
     .container2{
         width: 500px;
         padding: 20px;
