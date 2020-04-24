@@ -1,95 +1,84 @@
 <template>
-  <div class="container">
-    <div>
-      <h1 class="title">
-        <div class="box">
-          <span>+</span>
-          <input class="file" type="file" accept="image/png, image/jpeg" @change="getFile">
-          <img v-if="img=='' ? false: true" class="img" :src="img">
-        </div>
-        <input v-model="name">
-        <button @click="onSubmit">
-          submit
-        </button>
-         <nuxt-link to="/register">register</nuxt-link>
-      </h1>
-    </div>
+  <div class="container2">
+    <h1>百步穿杨论坛</h1>
+    <h2>注册账户</h2>
+    <el-input style="margin-bottom:10px;" v-model="account" placeholder="请输入账号"></el-input>
+    <el-input style="margin-bottom:10px;" type="password" v-model="password" placeholder="请输入密码"></el-input>
+    <el-input style="margin-bottom:10px;" type="password" v-model="password2" placeholder="请再次输入密码"></el-input>
+    <el-row type="flex" justify="space-between">
+        <el-button @click="onSubmit">提交</el-button>
+        <el-button @click="onCancel" type="primary">取消</el-button>
+    </el-row>
   </div>
 </template>
 
 <script>
 export default {
+  head () {
+    return {
+      title: '百步穿杨 - 注册',
+      meta: [
+        { hid: 'author', name: 'author', content: '常德闯' },
+        { hid: 'description', name: 'description', content: '百步穿杨论坛 美猎 美式猎弓 复合弓 传统弓 竞技 射击 户外' }
+      ]
+    }
+  },
   components: {
 
   },
   data () {
     return {
-      file: '',
-      name: '',
-      img: ''
+      account: '',
+      password: '',
+      password2: '',
     }
   },
   methods: {
-    getFile (event) {
-      const _this = this
-      this.file = event.target.files[0]
-      const reader = new FileReader()
-      reader.onload = function () {
-        _this.img = reader.result
-        window.console.log(_this.img)
-      }
-      reader.readAsDataURL(this.file)
-    },
     onSubmit () {
-      const fd = new FormData()
-      fd.append('file', this.file)
-      fd.append('name', this.name)
-      window.console.log(fd, 'FormData')
-      window.console.log({ a: 1 }, 'Json')
-      this.$axios.$post('unique/user/ownCenter', fd)
+      let {password2,password,account} = this;
+      if(!Boolean(account)||account.length<=5){
+        this.$message({
+          showClose: true,
+          message: '账号长度不可小于6位',
+          type: 'warning'
+        })
+        return
+      }
+      if(!Boolean(password)||password!=password2){
+        this.$message({
+          showClose: true,
+          message: '密码不一致',
+          type: 'warning'
+        })
+        return
+      }
+      this.$axios.$post('api/user/register',{
+          account,
+          password
+      })
+      .then((res)=>{
+        
+      })
+    },
+    onCancel () {
+      this.account = ''
+      this.password = ''
+      this.password2 = ''
+      
+      
     }
   }
 }
 </script>
 
-<style>
-.box{
-  position: relative;
-  width: 100px;
-  height: 100px;
-  border: 1px solid red;
-}
-.img{
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-}
-.box span{
-  font-size: 48px;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 17px;
-      z-index: 80;
-    color: red;
-}
-.file{
-  opacity: 0;
-  opacity: 0;
-  display: inline-block;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100px;
-  height: 100px;
-  z-index: 99;
-}
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+<style  scoped lang="less">
+    .container2{
+        max-width: 500px;
+        padding: 20px;
+        margin: 50px auto;
+        h1,h2{
+          text-align: center;
+          padding:0px 0px 10px ;
+        }
+    }
 </style>
