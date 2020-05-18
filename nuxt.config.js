@@ -8,7 +8,7 @@ module.exports = {
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
@@ -19,33 +19,35 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
+
+  router: {
+    middleware: 'i18n'
+  },
   /*
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'iview/dist/styles/iview.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui',
-    '@/plugins/axios'
+    '@/plugins/iview',
+    '@/plugins/axios',
+    '@/plugins/i18n.js'
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    // '@nuxtjs/eslint-module'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/proxy'
+    '@nuxtjs/axios'
   ],
   /*
   ** Axios module configuration
@@ -55,26 +57,33 @@ module.exports = {
     proxy: true
   },
   proxy: {
-    // http://127.0.0.1:7001/api/user/register
-    '/api': 'https://www.bbcy.club',
+    '/unique': 'https://www.tacu.com',
   },
   /*
   ** Build configuration
   */
   build: {
-    transpile: [/^element-ui/],
-    extractCSS: { allChunks: true },
     /*
     ** You can extend webpack config here
     */
-    // extend (config, ctx) {
-    // }
+    optimization: {
+      minimize: true,
+      minimizer: [
+        // terser-webpack-plugin
+        // optimize-css-assets-webpack-plugin
+      ],
+      splitChunks: {
+        chunks: 'all',
+        automaticNameDelimiter: '.',
+        name: undefined,
+        cacheGroups: {}
+      }
+    },
+    extend (config, ctx) {
+    }
   },
   server: {
     port: 3000, // default: 3000
     host: '0.0.0.0' // default: localhost,
-  },
-  rules: {
-    "vue/html-closing-bracket-newline": "error"
   }
 }
