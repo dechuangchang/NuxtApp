@@ -1,8 +1,8 @@
 {
-  "name": "tacu",
+  "name": "bbcy",
   "version": "1.0.0",
-  "description": "Tacu国际站",
-  "author": "TacuGlobal",
+  "description": "www.bbcy.club",
+  "author": "常德闯",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
@@ -14,7 +14,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
-    "iview": "^3.1.5",
+    "view-design": "^4.2.0",
     "nuxt": "^2.0.0",
     "vue-i18n": "^8.17.4"
   },

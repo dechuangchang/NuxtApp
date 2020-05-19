@@ -27,15 +27,16 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'iview/dist/styles/iview.css'
+    'view-design/dist/styles/iview.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/i18n.js',
     '@/plugins/iview',
     '@/plugins/axios',
-    '@/plugins/i18n.js'
+    
   ],
   /*
   ** Nuxt.js dev-modules
@@ -57,7 +58,7 @@ module.exports = {
     proxy: true
   },
   proxy: {
-    '/unique': 'https://www.tacu.com',
+    '/api': 'https://www.bbcy.club',
   },
   /*
   ** Build configuration
