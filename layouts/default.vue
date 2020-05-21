@@ -1,12 +1,12 @@
 <template>
-  <div class="default-box">
+  <div :class="`default-box ${theme}`">
     <Row  type="flex" class="default-lay-row ">
-      <Col span="18">
+      <Col span="19">
         <Header />
         <nuxt />
         <Footer />
       </Col>
-      <Col span="6">
+      <Col class="shadow" span="5">
         <HomeWidget />
       </Col>
     </Row>
@@ -15,10 +15,12 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 import Footer from '~/components/Footer.vue'
 import Header from '~/components/Header.vue'
 import HomeWidget from '~/components/HomeWidget.vue'
 export default {
+  computed: mapState(["theme"]),
   components: {
     Footer,
     Header,
@@ -27,14 +29,12 @@ export default {
 }
 </script>
 <style lang="less">
- @ss :rgba(0, 0, 0, 0.1);
-  .shadow{
-    box-shadow: inset 1px 0px 2px 0px @ss;
-  }
+  @import '@/assets/theme/light.less';
+  @import '@/assets/theme/dark.less';
 </style>
 <style lang="less" scoped>
+
   .default-box{
-   
     height: 100vh;
     background: url(/background.jpg) no-repeat center center fixed;
     background-size: cover;

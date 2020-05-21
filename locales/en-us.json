@@ -1,6 +1,10 @@
 {
-    "header": {
-      "home": "Home",
-      "about": "About"
-    }
+  "header": {
+    "home": "Home",
+    "about": "About"
+  },
+  "common": {
+    "light":"Light",
+    "dark":"Dark"
+  }
 }

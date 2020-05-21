@@ -1,6 +1,8 @@
 export const state = () => ({
     locales: ['en-us', 'zh-cn'],
-    locale: 'zh-cn'
+    locale: 'zh-cn',
+    themes:['light','dark'],
+    theme:'dark'
 })
 
 export const mutations = {
@@ -8,5 +10,16 @@ export const mutations = {
         if (state.locales.includes(locale)) {
           state.locale = locale
         }
+    },
+    SET_THEME (state, theme) {
+        if (state.themes.includes(theme)) {
+          state.theme = theme
+        }
     }
+}
+
+export const getters = {
+  theme (state) {
+    return state.theme
+  }
 }
