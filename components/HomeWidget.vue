@@ -1,15 +1,15 @@
 <template>
-  <div class="footer">
-    Footer
+  <div class="home-widget">
+    HomeWidget
   </div>
 </template>
 <script>
   export default {
-    name: 'Footer',
+    name: 'HomeWidget',
   }
 </script>
 <style lang="less" scoped>
-  .footer{
+  .home-widget{
     color: rgb(51, 255, 0);
   }
 </style>

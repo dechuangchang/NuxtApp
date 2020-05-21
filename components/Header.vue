@@ -33,10 +33,9 @@ export default {
 <style lang="less" scoped>
 .header {
   height: 72px;
-  background-color: #0f416c;
+  background-color: rgba(15, 65, 108, 0.16);
   color: #fff;
   .content {
-    width: 1380px;
     height: 100%;
     margin: 0 auto;
     display: flex;
