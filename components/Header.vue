@@ -4,19 +4,8 @@
       <NuxtLink :to="$i18n.path('')" class="Header__Link" exact>{{ $t('header.home') }}</NuxtLink>
       <NuxtLink :to="$i18n.path('about')" class="Header__Link" exact>{{ $t('header.about') }}</NuxtLink>
 
-      <span>{{ locale }}</span>
-      <NuxtLink
-        :to="$route.fullPath.replace(/^\/[^\/]+/, '')"
-        class="Header__Link"
-        active-class="ggg"
-        exact
-      >简体中文</NuxtLink>
-      <NuxtLink
-        :to="locale == 'en-us' ?'': `/en-us` + $route.fullPath"
-        class="Header__Link"
-        active-class="ggg"
-        exact
-      >English</NuxtLink>
+      
+      
     </div>
 
     <!-- {{ $t('header.home') }}

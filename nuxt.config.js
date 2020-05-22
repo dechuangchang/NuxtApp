@@ -39,6 +39,9 @@ module.exports = {
     '@/plugins/axios',
     
   ],
+  generate: {
+    routes: ['/', '/about', '/en-us/', '/en-us/about']
+  },
   /*
   ** Nuxt.js dev-modules
   */
@@ -68,6 +71,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+    ssr:true,
     extractCSS: true,
     optimization: {
       minimize: true,
@@ -83,7 +87,8 @@ module.exports = {
       }
     },
     extend (config, ctx) {
-    }
+    },
+    // publicPath: 'https://www.bbcy.club/public/'
   },
   server: {
     port: 3000, // default: 3000

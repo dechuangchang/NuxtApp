@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="about">
     about
     
   </div>
@@ -21,3 +21,8 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+  .about{
+    flex-grow: 1;
+  }
+</style>

@@ -35,3 +35,8 @@ export default {
   }
 };
 </script>
+<style lang="less" scoped>
+  .home{
+    flex-grow: 1;
+  }
+</style>

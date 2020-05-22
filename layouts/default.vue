@@ -1,7 +1,7 @@
 <template>
-  <div :class="`default-box ${theme}`">
+  <div style="height:100vh" :class="`default-box ${theme}`">
     <Row  type="flex" class="default-lay-row ">
-      <Col span="19">
+      <Col class="left-box" span="19">
         <Header />
         <nuxt />
         <Footer />
@@ -40,6 +40,11 @@ export default {
     background-size: cover;
     .default-lay-row{
       height: 100%;
+      .left-box{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
     }
     
   }

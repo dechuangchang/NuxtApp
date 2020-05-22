@@ -1,9 +1,13 @@
-
 .dark{
-    @ss :rgba(0, 0, 0, 0.1);
+    @shadowColor :rgba(0, 0, 0, 0.1);
     @time:500ms;
+    @fontColorA:#000;
     .shadow{
-        box-shadow: inset 1px 0px 2px 0px @ss;
+        box-shadow: inset 1px 0px 2px 0px @shadowColor;
+        transition: @time;
+    }
+    .a-color{
+        color: @fontColorA;
         transition: @time;
     }
 }
