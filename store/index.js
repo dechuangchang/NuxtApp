@@ -12,10 +12,23 @@ export const mutations = {
       }
   },
   SET_THEME (state, theme) {
-      if (state.themes.includes(theme)) {
-        window.localStorage.setItem('theme',theme)
-        state.theme = theme
+    if (state.themes.includes(theme)) {
+      try {
+        if(window){
+          function setCookie(name,value){
+              var Days = 30;
+              var exp = new Date();
+              exp.setTime(exp.getTime() + Days*24*60*60*1000);
+              document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+          }
+          setCookie('theme',theme)
+        }
+      } catch (error) {
+        
       }
+      
+      state.theme = theme
+    }
   }
 }
 

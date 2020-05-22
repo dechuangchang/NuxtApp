@@ -21,7 +21,7 @@ module.exports = {
   loading: { color: '#fff' },
 
   router: {
-    middleware: 'i18n'
+    middleware: ['i18n','theme']
   },
   /*
   ** Global CSS
@@ -40,7 +40,7 @@ module.exports = {
     
   ],
   generate: {
-    routes: ['/', '/about', '/en-us/', '/en-us/about']
+    routes: ['/', '/about/', '/en-us/', '/en-us/about/']
   },
   /*
   ** Nuxt.js dev-modules

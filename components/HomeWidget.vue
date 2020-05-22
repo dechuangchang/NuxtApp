@@ -4,18 +4,19 @@
     
     <p>{{ theme }}</p>
     <p>{{ locale }}</p>
+    
     <NuxtLink
-        :to="$route.fullPath.replace(/^\/[^\/]+/, '')"
-        class="Header__Link"
-        active-class="ggg"
-        exact
-      >简体中文</NuxtLink>
-      <NuxtLink
         :to="locale == 'en-us' ?'': `/en-us` + $route.fullPath"
         class="Header__Link"
         active-class="ggg"
         exact
       >English</NuxtLink>
+      <NuxtLink
+        :to="$route.fullPath.replace(/^\/[^\/]+/, '')"
+        class="Header__Link"
+        active-class="ggg"
+        exact
+      >简体中文</NuxtLink>
     <RadioGroup @on-change="setTheme" :value="theme">
       <Radio label="light" border>{{ $t('common.light') }}</Radio>
       <Radio label="dark" border>{{ $t('common.dark') }}</Radio>
@@ -31,12 +32,10 @@
       locale: 'locale'
     }),
     mounted(){
-      if(localStorage.getItem('theme')){
-        this.$store.commit('SET_THEME', localStorage.getItem('theme'))
-      }
+     
     },
     created(){
-      // console.log(localStorage.getItem('theme'))
+     console.log(this.$route.fullPath.replace(/^\/[^\/]+/, ''))
     },
     methods: {
       ...mapMutations({

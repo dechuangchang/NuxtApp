@@ -6,6 +6,7 @@
 </template>
 
 <script>
+let theme = null
 import { mapState } from "vuex";
 
 export default {
@@ -31,7 +32,7 @@ export default {
   computed: mapState(["locale"]),
   methods: {},
   created() {
-    // console.log(this.$store)
+    
   }
 };
 </script>

@@ -20,6 +20,9 @@ import Footer from '~/components/Footer.vue'
 import Header from '~/components/Header.vue'
 import HomeWidget from '~/components/HomeWidget.vue'
 export default {
+  fetch(context) {
+    console.log(111)
+  },
   computed: mapState(["theme"]),
   components: {
     Footer,
